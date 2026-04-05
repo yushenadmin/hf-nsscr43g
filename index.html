@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NovaTech — Future-Ready Technology Solutions</title>
+  <meta name="description" content="NovaTech official website featuring innovative products, expert team, and next-generation digital solutions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root{
+      --bg:#0b1020;
+      --bg-soft:#121936;
+      --panel:#171f45;
+      --panel-2:#1f2757;
+      --text:#f5f7ff;
+      --muted:#a8b0d3;
+      --primary:#7c4dff;
+      --secondary:#ff4da6;
+      --accent:#35c9ff;
+      --gold:#ffb84d;
+      --border:rgba(255,255,255,.12);
+      --shadow:0 20px 60px rgba(0,0,0,.35);
+      --radius:24px;
+      --radius-sm:16px;
+      --container:1200px;
+      --transition:all .35s ease;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(124,77,255,.25), transparent 30%),
+        radial-gradient(circle at 85% 10%, rgba(255,77,166,.18), transparent 25%),
+        radial-gradient(circle at 50% 80%, rgba(53,201,255,.10), transparent 25%),
+        linear-gradient(135deg, #070b17 0%, #0b1020 45%, #11183a 100%);
+      color:var(--text);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    body.menu-open{
+      overflow:hidden;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .container{
+      width:min(var(--container), calc(100% - 2rem));
+      margin-inline:auto;
+    }
+
+    .section{
+      padding:90px 0;
+      position:relative;
+    }
+
+    .section-title{
+      font-size:clamp(2rem, 4vw, 3rem);
+      line-height:1.1;
+      margin-bottom:1rem;
+      letter-spacing:-0.03em;
+    }
+
+    .section-subtitle{
+      color:var(--muted);
+      max-width:700px;
+      font-size:1.05rem;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:.55rem;
+      padding:.5rem .9rem;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      color:#dcdfff;
+      font-size:.86rem;
+      margin-bottom:1rem;
+      backdrop-filter:blur(10px);
+    }
+
+    .eyebrow i{
+      color:var(--accent);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:.65rem;
+      padding:14px 22px;
+      border-radius:999px;
+      border:1px solid transparent;
+      font-weight:700;
+      transition:var(--transition);
+      cursor:pointer;
+      white-space:nowrap;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg, var(--primary), var(--secondary));
+      color:white;
+      box-shadow:0 10px 30px rgba(124,77,255,.35);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-3px);
+      box-shadow:0 18px 34px rgba(124,77,255,.45);
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,.04);
+      border-color:rgba(255,255,255,.12);
+      color:var(--text);
+      backdrop-filter:blur(12px);
+    }
+
+    .btn-secondary:hover{
+      transform:translateY(-3px);
+      background:rgba(255,255,255,.08);
+    }
+
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(7,11,23,.55);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .navbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      min-height:78px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:.8rem;
+      font-weight:800;
+      font-size:1.12rem;
+      letter-spacing:.02em;
+    }
+
+    .brand-mark{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, var(--primary), var(--secondary));
+      box-shadow:0 12px 28px rgba(124,77,255,.35);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .brand-mark::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(145deg, rgba(255,255,255,.28), transparent 45%);
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:1.4rem;
+      list-style:none;
+    }
+
+    .nav-links a{
+      color:#d7dcff;
+      font-weight:600;
+      position:relative;
+      padding:.5rem 0;
+      transition:var(--transition);
+    }
+
+    .nav-links a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:0;
+      height:2px;
+      border-radius:99px;
+      background:linear-gradient(90deg, var(--accent), var(--secondary));
+      transition:var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active{
+      color:#fff;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after{
+      width:100%;
+    }
+
+    .nav-cta{
+      display:flex;
+      align-items:center;
+      gap:.8rem;
+    }
+
+    .menu-toggle{
+      display:none;
+      width:46px;
+      height:46px;
+      border:none;
+      border-radius:14px;
+      background:rgba(255,255,255,.06);
+      color:white;
+      font-size:1.1rem;
+      cursor:pointer;
+      border:1px solid rgba(255,255,255,.1);
+    }
+
+    .hero{
+      padding:80px 0 70px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .95fr;
+      gap:3rem;
+      align-items:center;
+    }
+
+    .hero-content h1{
+      font-size:clamp(2.8rem, 7vw, 5.6rem);
+      line-height:.98;
+      letter-spacing:-0.05em;
+      margin-bottom:1.3rem;
+    }
+
+    .hero-content h1 span{
+      background:linear-gradient(135deg, #fff 0%, #c9c8ff 35%, #8fdfff 70%, #ff9dd0 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .hero-content p{
+      color:var(--muted);
+      font-size:1.08rem;
+      max-width:640px;
+      margin-bottom:2rem;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:1rem;
+      flex-wrap:wrap;
+      margin-bottom:2.2rem;
+    }
+
+    .hero-stats{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:1rem;
+    }
+
+    .stat-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:20px;
+      padding:1.2rem;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(10px);
+    }
+
+    .stat-card h3{
+      font-size:1.75rem;
+      margin-bottom:.25rem;
+    }
+
+    .stat-card p{
+      margin:0;
+      font-size:.95rem;
+      color:#c2c8ea;
+    }
+
+    .hero-visual{
+      position:relative;
+      min-height:540px;
+    }
+
+    .floating-card{
+      position:absolute;
+      border-radius:26px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(255,255,255,.12);
+      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.03));
+      backdrop-filter:blur(16px);
+      animation:float 6s ease-in-out infinite;
+    }
+
+    .main-device{
+      inset:30px 40px 70px 40px;
+      padding:14px;
+    }
+
+    .device-frame{
+      border-radius:22px;
+      overflow:hidden;
+      background:#0a0f1e;
+      border:1px solid rgba(255,255,255,.08);
+      height:100%;
+      position:relative;
+    }
+
+    .device-frame img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter:saturate(1.1) contrast(1.05);
+    }
+
+    .mini-card{
+      padding:1rem 1.1rem;
+      width:220px;
+      animation-duration:7.5s;
+    }
+
+    .mini-card.top{
+      top:0;
+      right:0;
+    }
+
+    .mini-card.bottom{
+      left:0;
+      bottom:0;
+      animation-duration:8.5s;
+    }
+
+    .mini-card .icon{
+      width:48px;
+      height:48px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      margin-bottom:.9rem;
+      background:linear-gradient(135deg, rgba(53,201,255,.25), rgba(124,77,255,.35));
+      color:#fff;
+      font-size:1.15rem;
+    }
+
+    .mini-card h4{
+      margin-bottom:.3rem;
+      font-size:1rem;
+    }
+
+    .mini-card p{
+      color:#c1c8ed;
+      font-size:.92rem;
+      line-height:1.45;
+    }
+
+    .orb{
+      position:absolute;
+      border-radius:999px;
+      filter:blur(10px);
+      opacity:.6;
+      z-index:-1;
+      animation:pulse 4s ease-in-out infinite;
+    }
+
+    .orb.one{
+      width:220px;
+      height:220px;
+      background:radial-gradient(circle, rgba(124,77,255,.7), transparent 70%);
+      top:-20px;
+      right:30px;
+    }
+
+    .orb.two{
+      width:180px;
+      height:180px;
+      background:radial-gradient(circle, rgba(255,77,166,.65), transparent 70%);
+      bottom:40px;
+      left:-20px;
+      animation-delay:1s;
+    }
+
+    .partners{
+      padding-top:20px;
+    }
+
+    .partner-strip{
+      margin-top:2rem;
+      display:grid;
+      grid-template-columns:repeat(5, 1fr);
+      gap:1rem;
+    }
+
+    .partner-item{
+      border:1px solid rgba(255,255,255,.1);
+      background:rgba(255,255,255,.04);
+      border-radius:18px;
+      min-height:84px;
+      display:grid;
+      place-items:center;
+      color:#c9d0f0;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      backdrop-filter:blur(10px);
+    }
+
+    .products-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:1.5rem;
+      margin-top:3rem;
+    }
+
+    .product-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:26px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      transition:var(--transition);
+      backdrop-filter:blur(12px);
+    }
+
+    .product-card:hover{
+      transform:translateY(-10px);
+      border-color:rgba(255,255,255,.18);
+    }
+
+    .product-media{
+      height:220px;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .product-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .6s ease;
+    }
+
+    .product-card:hover .product-media img{
+      transform:scale(1.06);
+    }
+
+    .product-badge{
+      position:absolute;
+      top:16px;
+      left:16px;
+      padding:.45rem .8rem;
+      border-radius:999px;
+      background:rgba(11,16,32,.7);
+      color:#fff;
+      font-size:.78rem;
+      border:1px solid rgba(255,255,255,.16);
+      backdrop-filter:blur(8px);
+    }
+
+    .product-content{
+      padding:1.35rem;
+    }
+
+    .product-content h3{
+      font-size:1.3rem;
+      margin-bottom:.6rem;
+    }
+
+    .product-content p{
+      color:var(--muted);
+      margin-bottom:1rem;
+    }
+
+    .feature-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.65rem;
+      margin-bottom:1rem;
+    }
+
+    .feature-list span{
+      font-size:.82rem;
+      color:#d8ddff;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:999px;
+      padding:.45rem .75rem;
+    }
+
+    .solutions-wrap{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1.8rem;
+      margin-top:3rem;
+      align-items:stretch;
+    }
+
+    .solution-panel{
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:28px;
+      padding:2rem;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(12px);
+    }
+
+    .solution-panel h3{
+      font-size:1.55rem;
+      margin-bottom:.8rem;
+    }
+
+    .solution-panel p{
+      color:var(--muted);
+      margin-bottom:1.4rem;
+    }
+
+    .bullet-list{
+      list-style:none;
+      display:grid;
+      gap:1rem;
+    }
+
+    .bullet-list li{
+      display:flex;
+      gap:.9rem;
+      align-items:flex-start;
+    }
+
+    .bullet-list i{
+      color:var(--accent);
+      margin-top:.2rem;
+    }
+
+    .metrics-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:1rem;
+    }
+
+    .metric{
+      border-radius:22px;
+      padding:1.2rem;
+      background:linear-gradient(135deg, rgba(124,77,255,.15), rgba(255,77,166,.10));
+      border:1px solid rgba(255,255,255,.1);
+    }
+
+    .metric h4{
+      font-size:2rem;
+      line-height:1;
+      margin-bottom:.35rem;
+    }
+
+    .metric p{
+      margin:0;
+      color:#c8cff1;
+      font-size:.95rem;
+    }
+
+    .team-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:1.5rem;
+      margin-top:3rem;
+    }
+
+    .team-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:26px;
+      overflow:hidden;
+      transition:var(--transition);
+      box-shadow:var(--shadow);
+    }
+
+    .team-card:hover{
+      transform:translateY(-8px);
+    }
+
+    .team-photo{
+      height:300px;
+      overflow:hidden;
+    }
+
+    .team-photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .6s ease;
+    }
+
+    .team-card:hover .team-photo img{
+      transform:scale(1.05);
+    }
+
+    .team-info{
+      padding:1.2rem;
+    }
+
+    .team-info h3{
+      font-size:1.2rem;
+      margin-bottom:.2rem;
+    }
+
+    .team-role{
+      color:var(--gold);
+      font-weight:700;
+      font-size:.92rem;
+      margin-bottom:.65rem;
+    }
+
+    .team-info p{
+      color:var(--muted);
+      font-size:.95rem;
+      margin-bottom:1rem;
+    }
+
+    .socials{
+      display:flex;
+      gap:.7rem;
+    }
+
+    .socials a{
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.09);
+      color:#e7ebff;
+      transition:var(--transition);
+    }
+
+    .socials a:hover{
+      background:linear-gradient(135deg, var(--primary), var(--secondary));
+      transform:translateY(-2px);
+    }
+
+    .cta-box{
+      margin-top:3rem;
+      padding:2.2rem;
+      border-radius:30px;
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(53,201,255,.2), transparent 25%),
+        radial-gradient(circle at 80% 15%, rgba(255,77,166,.18), transparent 25%),
+        linear-gradient(135deg, rgba(124,77,255,.22), rgba(255,255,255,.05));
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:var(--shadow);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      flex-wrap:wrap;
+    }
+
+    .cta-box h3{
+      font-size:clamp(1.6rem, 4vw, 2.3rem);
+      margin-bottom:.4rem;
+    }
+
+    .cta-box p{
+      color:#d2d7f7;
+      max-width:680px;
+    }
+
+    .site-footer{
+      padding:30px 0 40px;
+      border-top:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.02);
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.3fr .8fr .8fr 1fr;
+      gap:1.5rem;
+      padding:1.5rem 0 2rem;
+    }
+
+    .footer-col h4{
+      margin-bottom:1rem;
+      font-size:1rem;
+    }
+
+    .footer-col p,
+    .footer-col li,
+    .footer-bottom{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .footer-col ul{
+      list-style:none;
+      display:grid;
+      gap:.7rem;
+    }
+
+    .footer-col a:hover{
+      color:#fff;
+    }
+
+    .footer-bottom{
+      display:flex;
+      justify-content:space-between;
+      gap:1rem;
+      flex-wrap:wrap;
+      padding-top:1.3rem;
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(36px);
+      transition:opacity .75s ease, transform .75s ease;
+    }
+
+    .reveal.show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @keyframes float{
+      0%,100%{transform:translateY(0px);}
+      50%{transform:translateY(-12px);}
+    }
+
+    @keyframes pulse{
+      0%,100%{transform:scale(1); opacity:.6;}
+      50%{transform:scale(1.08); opacity:.85;}
+    }
+
+    @media (max-width: 1100px){
+      .hero-grid,
+      .solutions-wrap,
+      .footer-grid{
+        grid-template-columns:1fr;
+      }
+
+      .products-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .team-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .hero-visual{
+        min-height:500px;
+      }
+    }
+
+    @media (max-width: 820px){
+      .menu-toggle{
+        display:grid;
+        place-items:center;
+      }
+
+      .nav-cta .btn{
+        display:none;
+      }
+
+      .nav-links{
+        position:fixed;
+        top:78px;
+        left:0;
+        right:0;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:.3rem;
+        padding:1rem;
+        background:rgba(10,14,28,.95);
+        backdrop-filter:blur(18px);
+        border-bottom:1px solid rgba(255,255,255,.08);
+        transform:translateY(-120%);
+        opacity:0;
+        pointer-events:none;
+        transition:var(--transition);
+      }
+
+      .nav-links.open{
+        transform:translateY(0);
+        opacity:1;
+        pointer-events:auto;
+      }
+
+      .nav-links li{
+        width:100%;
+      }
+
+      .nav-links a{
+        display:block;
+        width:100%;
+        padding:.9rem 0;
+      }
+
+      .hero{
+        padding-top:50px;
+      }
+
+      .hero-stats,
+      .partner-strip,
+      .products-grid,
+      .team-grid,
+      .metrics-grid{
+        grid-template-columns:1fr;
+      }
+
+      .mini-card{
+        width:200px;
+      }
+    }
+
+    @media (max-width: 640px){
+      .section{
+        padding:70px 0;
+      }
+
+      .hero-content h1{
+        font-size:clamp(2.5rem, 12vw, 4rem);
+      }
+
+      .hero-visual{
+        min-height:420px;
+      }
+
+      .main-device{
+        inset:36px 18px 70px 18px;
+      }
+
+      .mini-card.top{
+        top:0;
+        right:8px;
+      }
+
+      .mini-card.bottom{
+        left:8px;
+        bottom:6px;
+      }
+
+      .cta-box{
+        padding:1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="#home" class="brand">
+        <span class="brand-mark"><i class="fa-solid fa-bolt"></i></span>
+        <span>NovaTech</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#products" class="nav-link">Products</a></li>
+        <li><a href="#solutions" class="nav-link">Solutions</a></li>
+        <li><a href="#team" class="nav-link">Team</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="#contact" class="btn btn-secondary">Talk to Us</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <div class="eyebrow"><i class="fa-solid fa-sparkles"></i> Building digital systems for tomorrow</div>
+          <h1>Technology that turns <span>bold ideas</span> into scalable products.</h1>
+          <p>
+            NovaTech helps ambitious companies accelerate growth with AI-powered platforms, cloud-native products, and beautifully engineered user experiences that perform at enterprise scale.
+          </p>
+          <div class="hero-actions">
+            <a href="#products" class="btn btn-primary"><i class="fa-solid fa-rocket"></i> Explore Products</a>
+            <a href="#team" class="btn btn-secondary"><i class="fa-solid fa-users"></i> Meet the Team</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-card">
+              <h3>120+</h3>
+              <p>Global clients launched and supported</p>
+            </div>
+            <div class="stat-card">
+              <h3>99.98%</h3>
+              <p>Platform uptime across core services</p>
+            </div>
+            <div class="stat-card">
+              <h3>4.8/5</h3>
+              <p>Average customer satisfaction score</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="orb one"></div>
+          <div class="orb two"></div>
+
+          <div class="floating-card main-device">
+            <div class="device-frame">
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="Technology dashboard" />
+            </div>
+          </div>
+
+          <div class="floating-card mini-card top">
+            <div class="icon"><i class="fa-solid fa-microchip"></i></div>
+            <h4>AI Acceleration</h4>
+            <p>Real-time automation layers for smarter decision workflows.</p>
+          </div>
+
+          <div class="floating-card mini-card bottom">
+            <div class="icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h4>Secure by Design</h4>
+            <p>Enterprise-grade protection integrated from day one.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container partners reveal">
+        <div class="partner-strip">
+          <div class="partner-item">Astra</div>
+          <div class="partner-item">Vertex</div>
+          <div class="partner-item">Lumina</div>
+          <div class="partner-item">Orbitex</div>
+          <div class="partner-item">NexCore</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow"><i class="fa-solid fa-cube"></i> Product Showcase</div>
+          <h2 class="section-title">Designed for speed, intelligence, and scale.</h2>
+          <p class="section-subtitle">
+            From predictive analytics to cloud orchestration, our products are crafted to simplify complexity and unlock measurable impact across operations, customer experience, and growth.
+          </p>
+        </div>
+
+        <div class="products-grid">
+          <article class="product-card reveal">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Analytics platform" />
+              <span class="product-badge">Flagship Platform</span>
+            </div>
+            <div class="product-content">
+              <h3>Nova Intelligence</h3>
+              <p>
+                An AI-driven analytics suite that transforms fragmented data into actionable business insights with live forecasting and customizable dashboards.
+              </p>
+              <div class="feature-list">
+                <span>Predictive Models</span>
+                <span>Live Dashboards</span>
+                <span>Smart Alerts</span>
+              </div>
+              <a href="#contact" class="btn btn-secondary">Learn More</a>
+            </div>
+          </article>
+
+          <article class="product-card reveal">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" alt="Cloud infrastructure" />
+              <span class="product-badge">Cloud Infrastructure</span>
+            </div>
+            <div class="product-content">
+              <h3>SkyMesh Cloud</h3>
+              <p>
+                A modular orchestration layer for distributed cloud services, built to deliver performance, resilience, and transparent control across regions.
+              </p>
+              <div class="feature-list">
+                <span>Multi-Cloud</span>
+                <span>Zero-Downtime</span>
+                <span>Auto Scaling</span>
+              </div>
+              <a href="#contact" class="btn btn-secondary">Learn More</a>
+            </div>
+          </article>
+
+          <article class="product-card reveal">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" alt="Developer platform" />
+              <span class="product-badge">Developer Experience</span>
+            </div>
+            <div class="product-content">
+              <h3>Pulse DevOS</h3>
+              <p>
+                A unified developer workspace with automated deployment pipelines, observability tooling, and collaboration features for product teams.
+              </p>
+              <div class="feature-list">
+                <span>CI/CD</span>
+                <span>Observability</span>
+                <span>Team Workflows</span>
+              </div>
+              <a href="#contact" class="btn btn-secondary">Learn More</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="solutions">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow"><i class="fa-solid fa-layer-group"></i> Smart Solutions</div>
+          <h2 class="section-title">Technology strategy backed by measurable execution.</h2>
+          <p class="section-subtitle">
+            We combine research, engineering, and design to help organizations move faster with stronger infrastructure, sharper product thinking, and customer-centered innovation.
+          </p>
+        </div>
+
+        <div class="solutions-wrap">
+          <div class="solution-panel reveal">
+            <h3>What we deliver</h3>
+            <p>
+              Our cross-functional teams support startups, scale-ups, and established enterprises through digital transformation initiatives that prioritize speed, quality, and security.
+            </p>
+            <ul class="bullet-list">
+              <li>
+                <i class="fa-solid fa-check-circle"></i>
+                <div>
+                  <strong>Custom Product Engineering</strong><br>
+                  Build web platforms, mobile apps, and internal systems with modern architecture and polished UX.
+                </div>
+              </li>
+              <li>
+                <i class="fa-solid fa-check-circle"></i>
+                <div>
+                  <strong>AI and Automation</strong><br>
+                  Integrate machine learning, process automation, and intelligent workflows into daily operations.
+                </div>
+              </li>
+              <li>
+                <i class="fa-solid fa-check-circle"></i>
+                <div>
+                  <strong>Cybersecurity and Compliance</strong><br>
+                  Protect sensitive systems through secure infrastructure, continuous monitoring, and best-practice governance.
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="solution-panel reveal">
+            <h3>Impact at a glance</h3>
+            <p>
+              We focus on outcomes that matter: faster launches, stronger retention, lower infrastructure risk, and better visibility across the entire product lifecycle.
+            </p>
+            <div class="metrics-grid">
+              <div class="metric">
+                <h4>38%</h4>
+                <p>Average reduction in release cycle time</p>
+              </div>
+              <div class="metric">
+                <h4>52%</h4>
+                <p>Improvement in operational efficiency</p>
+              </div>
+              <div class="metric">
+                <h4>24/7</h4>
+                <p>Monitoring and incident response coverage</p>
+              </div>
+              <div class="metric">
+                <h4>17</h4>
+                <p>Countries served through global delivery</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-box reveal">
+          <div>
+            <h3>Ready to build your next breakthrough?</h3>
+            <p>
+              Partner with NovaTech to launch smarter products, modernize your systems, and create digital experiences that lead your industry.
+            </p>
+          </div>
+          <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Start a Project</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="team">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow"><i class="fa-solid fa-user-group"></i> Team Introduction</div>
+          <h2 class="section-title">A team of builders, strategists, and visionaries.</h2>
+          <p class="section-subtitle">
+            Our leadership blends product thinking, advanced engineering, and creative design to turn ambitious roadmaps into real-world business outcomes.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <article class="team-card reveal">
+            <div class="team-photo">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=900&q=80" alt="CEO portrait" />
+            </div>
+            <div class="team-info">
+              <h3>Adrian Cole</h3>
+              <div class="team-role">Chief Executive Officer</div>
+              <p>
+                Adrian leads the company with a focus on bold innovation, sustainable scale, and customer-first transformation.
+              </p>
+              <div class="socials">
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-solid fa-envelope"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="team-card reveal">
+            <div class="team-photo">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80" alt="CTO portrait" />
+            </div>
+            <div class="team-info">
+              <h3>Maya Bennett</h3>
+              <div class="team-role">Chief Technology Officer</div>
+              <p>
+                Maya architects high-performance systems and drives the technical direction behind our AI and cloud platforms.
+              </p>
+              <div class="socials">
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-solid fa-envelope"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="team-card reveal">
+            <div class="team-photo">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="Product director portrait" />
+            </div>
+            <div class="team-info">
+              <h3>Ethan Brooks</h3>
+              <div class="team-role">Director of Product</div>
+              <p>
+                Ethan translates market opportunities into product roadmaps that are strategic, elegant, and execution-ready.
+              </p>
+              <div class="socials">
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-dribbble"></i></a>
+                <a href="#"><i class="fa-solid fa-envelope"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="team-card reveal">
+            <div class="team-photo">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=900&q=80" alt="Design lead portrait" />
+            </div>
+            <div class="team-info">
+              <h3>Sophia Lane</h3>
+              <div class="team-role">Head of Experience Design</div>
+              <p>
+                Sophia shapes digital experiences that feel intuitive, premium, and deeply aligned with user behavior.
+              </p>
+              <div class="socials">
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-behance"></i></a>
+                <a href="#"><i class="fa-solid fa-envelope"></i></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="#home" class="brand" style="margin-bottom:1rem; display:inline-flex;">
+            <span class="brand-mark"><i class="fa-solid fa-bolt"></i></span>
+            <span>NovaTech</span>
+          </a>
+          <p>
+            We create future-ready technology products that help companies scale intelligently, operate securely, and deliver exceptional digital experiences.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#home">About</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#solutions">Solutions</a></li>
+            <li><a href="#team">Leadership</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li>hello@novatech.io</li>
+            <li>+1 (800) 240-9988</li>
+            <li>88 Horizon Avenue, New York</li>
+            <li>Mon–Fri, 9:00 AM – 6:00 PM</li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Follow</h4>
+          <div class="socials">
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2025 NovaTech. All rights reserved.</span>
+        <span>Built for innovation, performance, and scale.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    const navItems = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id], footer[id]');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      document.body.classList.toggle('menu-open');
+      menuToggle.innerHTML = navLinks.classList.contains('open')
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
+    });
+
+    navItems.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+      });
+    });
+
+    function updateActiveNav() {
+      let current = '';
+      sections.forEach(section => {
+        const top = window.scrollY;
+        const offset = section.offsetTop - 140;
+        const height = section.offsetHeight;
+        if (top >= offset && top < offset + height) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navItems.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    reveals.forEach(el => observer.observe(el));
+
+    window.addEventListener('scroll', updateActiveNav);
+    window.addEventListener('load', updateActiveNav);
+  </script>
+</body>
+</html>
